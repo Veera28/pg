@@ -10,6 +10,10 @@ data:
     global:
       scrape_interval: 5s
       evaluation_interval: 5s
+    remote_write:
+      - url: "http://localhost:9201/write"
+    remote_read:
+      - url: "http://localhost:9201/read"
     scrape_configs:
       - job_name: 'federate'
         scrape_interval: 15s
@@ -21,5 +25,5 @@ data:
             - '{__name__=~"job:.*"}'
         static_configs:
           - targets:
-            - '10.128.0.52:30279'
-            - '10.128.0.56:31628'
+            - '10.128.0.18:32101'
+            - '10.128.0.19:32101'
